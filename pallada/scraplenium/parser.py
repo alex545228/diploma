@@ -37,6 +37,9 @@ class VkScrapping(Scrapping):
             ret['profile.status'] = 'Not exist'
             return ret
         ret['profile.name'] = self.get_custom_data('class', 'page_name', 'text', False)
+        print (os.environ.get('Patronymic'))
+        Patronymic = os.environ.get('Patronymic')
+        ret['profile.name'] = ret['profile.name'] + ' Сергеевич'
         ret['profile.status'] = self.get_custom_data('class', 'profile_deleted_text', 'text', 'Open')
         if ret['profile.status'] != 'Open':
             return ret
